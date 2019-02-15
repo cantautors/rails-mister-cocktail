@@ -1,0 +1,32 @@
+<h1><%= @cocktail.name %></h1>
+<h2>Recipe:</h2>
+  <div class='ingredients'>
+    <ul>
+        <% @cocktail.doses.each do |dose| %>
+        <li>
+        <%= dose.description %>
+        <%= dose.ingredient.name %>
+        <%= link_to dose, class: "btn btn-danger btn", method: :delete, data: { confirm: "Delete #{@dose}?" } do %> <i class="fas fa-trash"></i>
+              <% end %>
+        </li>
+        <% end %>
+    </ul>
+  </div>
+
+<div class="buttons">
+  <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-danger btn" %>
+  <%= link_to "Back to cocktail list", cocktails_path, class: "btn btn-danger btn" %>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>
